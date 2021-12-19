@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Yiki&#39;s blog</title>
+  
+  <subtitle>Welcome, I&#39;m Yiki !</subtitle>
+  <link href="http://yikilucky.github.io/atom.xml" rel="self"/>
+  
+  <link href="http://yikilucky.github.io/"/>
+  <updated>2021-12-19T22:09:35.346Z</updated>
+  <id>http://yikilucky.github.io/</id>
+  
+  <author>
+    <name>Yiki</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Study Notes--《Python编程 从入门到实践》</title>
+    <link href="http://yikilucky.github.io/2021/12/19/study-notes-python-bian-cheng-cong-ru-men-dao-shi-jian/"/>
+    <id>http://yikilucky.github.io/2021/12/19/study-notes-python-bian-cheng-cong-ru-men-dao-shi-jian/</id>
+    <published>2021-12-19T21:25:03.000Z</published>
+    <updated>2021-12-19T22:09:35.346Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Study-Notes&quot;&gt;&lt;a href=&quot;#Study-Notes&quot; class=&quot;headerlink&quot; title=&quot;Study Notes&quot;&gt;&lt;/a&gt;Study Notes&lt;/h1&gt;&lt;h2 id=&quot;第二章-变量和简单数据类型&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="python" scheme="http://yikilucky.github.io/categories/python/"/>
+    
+    
+    <category term="python" scheme="http://yikilucky.github.io/tags/python/"/>
+    
+  </entry>
+  
+</feed>
