@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Git配置SSH-KEY</title>
+      <link href="/2021/12/25/git-pei-zhi-ssh-key/"/>
+      <url>/2021/12/25/git-pei-zhi-ssh-key/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Git配置SSH-KEY"><a href="#Git配置SSH-KEY" class="headerlink" title="Git配置SSH-KEY"></a>Git配置SSH-KEY</h1><h2 id="配置SSH-KEY前"><a href="#配置SSH-KEY前" class="headerlink" title="配置SSH-KEY前"></a>配置SSH-KEY前</h2><p>右键点击<code>Git Bash Here</code>，检查用户名和邮箱是否配置</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git config --global --list<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>如果未配置，则执行下列命令行进行全局配置</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git config --global user.name "your name"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git config --global user.email "your email"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h2 id="单个平台配置SSH-KEY"><a href="#单个平台配置SSH-KEY" class="headerlink" title="单个平台配置SSH-KEY"></a>单个平台配置SSH-KEY</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ssh-keygen -t rsa -C "对应平台注册的邮箱地址"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>回车后会确认密钥的保存路径，默认是<code>C: \Users\你的用户名\.ssh</code>，如不需要改则直接回车；</p><p>如果该路径下已经有密钥文件，则会被覆盖；</p><p>创建密钥的密码并确认密码，如不需要则直接回车；</p><p>之后在<code>.ssh</code>下会生成<code>id_rsa(存私钥)</code>和<code>id_rsa.pub(存公钥)</code>的两个文件；</p><p>打开GitHub，<code>Settings -- SSH and GPG keys -- New SSH key</code>，复制<code>id_rsa.pub</code>中的公钥到输入框，再为这个key取个title，一般用来区分不同主机；</p><p>测试是否配置成功：</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ssh -T git@github.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>此时就可以用ssh的方式提交了，记得要再修改一下本地仓库中 <code>.git -- config文件 -- url</code></p><h2 id="多平台配置SSH-KEY"><a href="#多平台配置SSH-KEY" class="headerlink" title="多平台配置SSH-KEY"></a>多平台配置SSH-KEY</h2><p>和单平台配置差别不大，主要是生成密钥的时候要改下存密钥的文件名</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ssh -keygen -t rsa -C "平台注册的邮箱地址" -f "生成的rsa文件名"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>若-f后面只带文件名，而非路径，则依旧是在默认目录下生成密钥文件</p><p>如配置gitee平台的SSH：</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ssh -keygen -t rsa -C "平台注册的邮箱地址" -f "gitee_id_rsa"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>测试是否配置成功：</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ssh -T git@gitee.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h2 id="多台电脑共用一个SSH-KEY"><a href="#多台电脑共用一个SSH-KEY" class="headerlink" title="多台电脑共用一个SSH-KEY"></a>多台电脑共用一个SSH-KEY</h2><p>一台电脑一对密钥，公钥添加在GitHub上，私钥保存在本地；</p><p>如果要共用一对密钥的话，可以先在别的设备上生成ssh key，再替换成相应的<code>id_rsa</code>和<code>id_rsa.pub</code>这两个文件</p><p>注意不能直接复制粘贴文件内容进行内容替换，必须要文件替换！</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> git </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Study Notes--《Python编程 从入门到实践》</title>
       <link href="/2021/12/19/study-notes-python-bian-cheng-cong-ru-men-dao-shi-jian/"/>
       <url>/2021/12/19/study-notes-python-bian-cheng-cong-ru-men-dao-shi-jian/</url>
