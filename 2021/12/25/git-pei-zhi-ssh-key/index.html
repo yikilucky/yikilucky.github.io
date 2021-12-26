@@ -428,7 +428,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    487
+                    492
                 </div>
                 
 
@@ -458,7 +458,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Git配置SSH-KEY"><a href="#Git配置SSH-KEY" class="headerlink" title="Git配置SSH-KEY"></a>Git配置SSH-KEY</h1><h2 id="配置SSH-KEY前"><a href="#配置SSH-KEY前" class="headerlink" title="配置SSH-KEY前"></a>配置SSH-KEY前</h2><p>右键点击<code>Git Bash Here</code>，检查用户名和邮箱是否配置</p>
+                <h1 id="Git配置SSH-KEY"><a href="#Git配置SSH-KEY" class="headerlink" title="Git配置SSH-KEY"></a>Git配置SSH-KEY</h1><h2 id="一-配置SSH-KEY前"><a href="#一-配置SSH-KEY前" class="headerlink" title="一. 配置SSH-KEY前"></a>一. 配置SSH-KEY前</h2><p>右键点击<code>Git Bash Here</code>，检查用户名和邮箱是否配置</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git config --global --list<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>如果未配置，则执行下列命令行进行全局配置</p>
@@ -466,7 +466,7 @@
 
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git config --global user.email "your email"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h2 id="单个平台配置SSH-KEY"><a href="#单个平台配置SSH-KEY" class="headerlink" title="单个平台配置SSH-KEY"></a>单个平台配置SSH-KEY</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ssh-keygen -t rsa -C "对应平台注册的邮箱地址"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="二-单个平台配置SSH-KEY"><a href="#二-单个平台配置SSH-KEY" class="headerlink" title="二. 单个平台配置SSH-KEY"></a>二. 单个平台配置SSH-KEY</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ssh-keygen -t rsa -C "对应平台注册的邮箱地址"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>回车后会确认密钥的保存路径，默认是<code>C: \Users\你的用户名\.ssh</code>，如不需要改则直接回车；</p>
 <p>如果该路径下已经有密钥文件，则会被覆盖；</p>
@@ -477,7 +477,7 @@
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ssh -T git@github.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>此时就可以用ssh的方式提交了，记得要再修改一下本地仓库中 <code>.git -- config文件 -- url</code></p>
-<h2 id="多平台配置SSH-KEY"><a href="#多平台配置SSH-KEY" class="headerlink" title="多平台配置SSH-KEY"></a>多平台配置SSH-KEY</h2><p>和单平台配置差别不大，主要是生成密钥的时候要改下存密钥的文件名</p>
+<h2 id="三-多平台配置SSH-KEY"><a href="#三-多平台配置SSH-KEY" class="headerlink" title="三. 多平台配置SSH-KEY"></a>三. 多平台配置SSH-KEY</h2><p>和单平台配置差别不大，主要是生成密钥的时候要改下存密钥的文件名</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ssh -keygen -t rsa -C "平台注册的邮箱地址" -f "生成的rsa文件名"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>若-f后面只带文件名，而非路径，则依旧是在默认目录下生成密钥文件</p>
@@ -487,7 +487,7 @@
 <p>测试是否配置成功：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ssh -T git@gitee.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h2 id="多台电脑共用一个SSH-KEY"><a href="#多台电脑共用一个SSH-KEY" class="headerlink" title="多台电脑共用一个SSH-KEY"></a>多台电脑共用一个SSH-KEY</h2><p>一台电脑一对密钥，公钥添加在GitHub上，私钥保存在本地；</p>
+<h2 id="四-多台电脑共用一个SSH-KEY"><a href="#四-多台电脑共用一个SSH-KEY" class="headerlink" title="四. 多台电脑共用一个SSH-KEY"></a>四. 多台电脑共用一个SSH-KEY</h2><p>一台电脑一对密钥，公钥添加在GitHub上，私钥保存在本地；</p>
 <p>如果要共用一对密钥的话，可以先在别的设备上生成ssh key，再替换成相应的<code>id_rsa</code>和<code>id_rsa.pub</code>这两个文件</p>
 <p>注意不能直接复制粘贴文件内容进行内容替换，必须要文件替换！</p>
 
@@ -727,30 +727,29 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;Current
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2021/12/25/git-pei-zhi-ssh-key/">
+                <a href="/2021/12/26/git-de-chang-yong-ming-ling/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Git配置SSH-KEY">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Git的常用命令">
                         
-                        <span class="card-title">Git配置SSH-KEY</span>
+                        <span class="card-title">Git的常用命令</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            总结git配置ssh密钥的方法
+                            总结git最日常使用的一些命令
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-25
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-12-26
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -763,7 +762,6 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -1022,7 +1020,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;Total Words:&nbsp;<span
-                        class="white-color">5.3k</span>
+                        class="white-color">5.8k</span>
             
             
             
