@@ -6,7 +6,7 @@
   <link href="http://yikilucky.github.io/atom.xml" rel="self"/>
   
   <link href="http://yikilucky.github.io/"/>
-  <updated>2022-03-19T18:50:02.894Z</updated>
+  <updated>2023-01-24T12:28:11.659Z</updated>
   <id>http://yikilucky.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://yikilucky.github.io/2022/03/19/promise/"/>
     <id>http://yikilucky.github.io/2022/03/19/promise/</id>
     <published>2022-03-19T09:12:15.000Z</published>
-    <updated>2022-03-19T18:50:02.894Z</updated>
+    <updated>2023-01-24T12:28:11.659Z</updated>
     
     
       
@@ -34,7 +34,7 @@
     
     
     
-    <category term="front end" scheme="http://yikilucky.github.io/categories/front-end/"/>
+    <category term="JavaScript" scheme="http://yikilucky.github.io/categories/JavaScript/"/>
     
     
     <category term="Promise" scheme="http://yikilucky.github.io/tags/Promise/"/>
@@ -46,7 +46,7 @@
     <link href="http://yikilucky.github.io/2021/12/26/git-de-chang-yong-ming-ling/"/>
     <id>http://yikilucky.github.io/2021/12/26/git-de-chang-yong-ming-ling/</id>
     <published>2021-12-26T20:31:28.000Z</published>
-    <updated>2021-12-26T20:55:53.622Z</updated>
+    <updated>2023-01-24T13:01:20.833Z</updated>
     
     
       
@@ -59,10 +59,10 @@
     
     
     
-    <category term="git" scheme="http://yikilucky.github.io/categories/git/"/>
+    <category term="Git" scheme="http://yikilucky.github.io/categories/Git/"/>
     
     
-    <category term="git" scheme="http://yikilucky.github.io/tags/git/"/>
+    <category term="Git" scheme="http://yikilucky.github.io/tags/Git/"/>
     
   </entry>
   
@@ -71,7 +71,7 @@
     <link href="http://yikilucky.github.io/2021/12/25/git-pei-zhi-ssh-key/"/>
     <id>http://yikilucky.github.io/2021/12/25/git-pei-zhi-ssh-key/</id>
     <published>2021-12-25T14:53:49.000Z</published>
-    <updated>2021-12-25T15:32:36.705Z</updated>
+    <updated>2023-01-24T12:29:45.534Z</updated>
     
     
       
@@ -84,10 +84,10 @@
     
     
     
-    <category term="git" scheme="http://yikilucky.github.io/categories/git/"/>
+    <category term="Git" scheme="http://yikilucky.github.io/categories/Git/"/>
     
     
-    <category term="git" scheme="http://yikilucky.github.io/tags/git/"/>
+    <category term="Git" scheme="http://yikilucky.github.io/tags/Git/"/>
     
   </entry>
   
@@ -96,7 +96,7 @@
     <link href="http://yikilucky.github.io/2021/12/19/study-notes-python-bian-cheng-cong-ru-men-dao-shi-jian/"/>
     <id>http://yikilucky.github.io/2021/12/19/study-notes-python-bian-cheng-cong-ru-men-dao-shi-jian/</id>
     <published>2021-12-19T21:25:03.000Z</published>
-    <updated>2021-12-19T22:09:35.346Z</updated>
+    <updated>2023-01-24T12:30:22.624Z</updated>
     
     
       
@@ -109,10 +109,10 @@
     
     
     
-    <category term="python" scheme="http://yikilucky.github.io/categories/python/"/>
+    <category term="Python" scheme="http://yikilucky.github.io/categories/Python/"/>
     
     
-    <category term="python" scheme="http://yikilucky.github.io/tags/python/"/>
+    <category term="Python" scheme="http://yikilucky.github.io/tags/Python/"/>
     
   </entry>
   
