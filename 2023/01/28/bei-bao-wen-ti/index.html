@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Promise,异步任务">
-    <meta name="description" content="study notes of Promise">
+    <meta name="keywords" content="算法,01背包,完全背包,多重背包">
+    <meta name="description" content="主要分析01背包，完全背包，简单提到多重背包">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Promise | Yiki&#39;s blog</title>
+    <title>背包问题 | Yiki&#39;s blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -268,12 +268,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('http://jaa673.bvimg.com/19243/b4b0ec95b973c8b5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Promise</h1>
+                    <h1 class="description center-align post-title">背包问题</h1>
                 </div>
             </div>
         </div>
@@ -389,8 +389,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Promise/">
-                                <span class="chip bg-color">Promise</span>
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
+                                <span class="chip bg-color">数据结构与算法</span>
                             </a>
                         
                     </div>
@@ -401,8 +401,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/JavaScript/" class="post-category">
-                                JavaScript
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" class="post-category">
+                                数据结构与算法
                             </a>
                         
                     </div>
@@ -414,28 +414,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2022-03-19
+                    2023-01-28
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2023-01-24
+                    2023-01-28
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    423
+                    2.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    1 Min
+                    8 Min
                 </div>
                 
 
@@ -458,39 +458,160 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h1><p>封装异步操作，成功执行resolve函数，并把成功的结果传给它；失败执行reject函数，也把失败的结果传给它。<code>.then</code>方法处理成功和失败的结果，成功调用第一个函数，失败调用第二个函数</p>
-<p>是一个构造函数，本身同步执行，<code>.then</code>方法异步执行</p>
-<p>支持链式调用，解决回调地狱问题</p>
-<img src="/2022/03/19/promise/image1.png" class="">
-
-<img src="/2022/03/19/promise/image2.png" class="">
-
-<img src="/2022/03/19/promise/image3.png" class="">
-
-<p>Promise函数的resolve, reject, all, race方法</p>
-<p><code>Promise.resolve()</code>如果传入Promise对象，返回是成功还是失败取决于传入的Promise对象是成功还是失败，且成功或失败的结果为传入的Promise对象的成功或失败的结果</p>
-<img src="/2022/03/19/promise/image4.png" class="">
-
-<p><code>Promise.reject()</code>无论传什么都是返回失败的Promise对象，且失败的结果为传入的内容</p>
-<p><code>Promise.all()</code>传入包含Promise对象的数组，如果都成功，那么返回成功的Promise对象，且成功的结果是一个数组，包含传入的Promise对象的成功的结果；如果传入有失败，那么返回失败的Promise对象，且失败的结果是一个数组，包含传入的Promise对象的失败的结果</p>
-<img src="/2022/03/19/promise/image5.png" class="">
-
-<img src="/2022/03/19/promise/image6.png" class="">
-
-<p>promise.then()返回的新 promise 的结果状态：</p>
+                <h1 id="背包问题"><a href="#背包问题" class="headerlink" title="背包问题"></a>背包问题</h1><p><strong>背包：</strong>最大容量</p>
+<p><strong>物品：</strong>价值，体积，每个物品的数量</p>
+<p>主要分析<strong>01背包</strong>，<strong>完全背包</strong>，简单提到<strong>多重背包</strong></p>
+<p><strong>01背包</strong>：每个物品数量<strong>只有一个</strong>，要么不选，要么选一个</p>
+<p><strong>完全背包</strong>：每个物品的数量有<strong>无数个</strong>，要么不选，要么选几个</p>
+<p><strong>多重背包</strong>：不同物品的数量不同</p>
+<p>首先从底向上思考，最差的<strong>暴力解法</strong>可以用回溯法枚举出所有情况，每个物品要么取要么不取，就两种状态，那么时间复杂度就是<code>O(2^n)</code>，由此可见暴力解法是指数级别的，于是我们需要<strong>动态规划</strong>的解法来优化</p>
+<p><strong>在背包问题中难点在初始化和遍历顺序上，需要牢记<code>dp</code>数组的定义</strong></p>
+<h2 id="01背包-二维dp数组和一维dp数组的两种实现"><a href="#01背包-二维dp数组和一维dp数组的两种实现" class="headerlink" title="01背包(二维dp数组和一维dp数组的两种实现)"></a>01背包(二维<code>dp</code>数组和一维<code>dp</code>数组的两种实现)</h2><h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p>背包最大重量是4</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">重量</th>
+<th align="center">价值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">物品0</td>
+<td align="center">1</td>
+<td align="center">15</td>
+</tr>
+<tr>
+<td align="center">物品1</td>
+<td align="center">3</td>
+<td align="center">20</td>
+</tr>
+<tr>
+<td align="center">物品2</td>
+<td align="center">4</td>
+<td align="center">30</td>
+</tr>
+</tbody></table>
+<p>每种物品只有1件，问背包能背的物品最大价值是多少？</p>
+<h3 id="1-二维dp数组01背包"><a href="#1-二维dp数组01背包" class="headerlink" title="1. 二维dp数组01背包"></a>1. 二维<code>dp</code>数组01背包</h3><h4 id="动态规划五部曲"><a href="#动态规划五部曲" class="headerlink" title="动态规划五部曲"></a>动态规划五部曲</h4><p><strong>1. 确定<code>dp</code>数组以及下标的含义</strong></p>
+<p>用二维数组来实现<code>dp</code>数组，<code>dp[i][j]</code> 表示从下标为<code>[0-i]</code>的物品里任意取，放进容量为<code>j</code>的背包，价值总和最大是多少</p>
+<p>对<code>dp</code>数组的定义在下面的每一步中都要牢记！</p>
+<p><strong>2. 确定递推公式</strong></p>
+<p>有两个方向推出<code>dp[i][j]</code></p>
 <ul>
-<li>如果抛出异常, 新 promise 变为 rejected, reason 为抛出的异常</li>
-<li>如果返回的是非 promise 的任意值, 新 promise 变为 resolved, value 为返回的值</li>
-<li>如果返回的是另一个新 promise, 此 promise 的结果就会成为新 promise 的结果</li>
+<li>不取物品<code>i</code>：此时<code>dp[i][j]</code>就是<code>dp[i-1][j]</code>，由<code>dp[i-1][j]</code>推出，背包容量为<code>j</code>，里面不放物品<code>i</code>的最大价值(其实就是当物品<code>i</code>的重量大于背包j的重量时，物品<code>i</code>无法放进背包中，所以被背包内的价值依然和前面相同)</li>
+<li>取物品<code>i</code>：由<code>dp[i - 1][j - weight[i]]</code>推出，<code>dp[i - 1][j - weight[i]] </code>为背包容量为<code>j - weight[i]</code>的时候不放物品<code>i</code>的最大价值，那么此时<code>dp[i][j]</code>就是<code>dp[i - 1][j - weight[i]] + value[i] </code>，也就是背包放物品<code>i</code>得到的最大价值</li>
 </ul>
-<p>async和await使用(异步编程终极解决方案，完全摒弃回调函数)：</p>
-<p>async函数返回promise对象，结果状态和.then()返回的新promise结果状态判断类似</p>
-<img src="/2022/03/19/promise/image7.png" class="">
+<p>递推公式：<code>dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - weight[i]] + value[i])</code></p>
+<p><strong>3. <code>dp</code>数组的初始化</strong></p>
+<ul>
+<li><p>当背包容量<code>j</code>为0的话，即<code>dp[i][0]</code>，无论选取哪些物品，背包价值总和一定为0</p>
+</li>
+<li><p>由状态转移方程可以看出，<code>i</code>是由<code>i-1</code>推导出来的，那么<code>i=0</code>也要初始化。</p>
+<p><code>dp[0][j]</code>表示把编号为0的物品放入容量为j的背包，最大价值是多少。</p>
+<p>当<code>j&lt; weight[0]</code>的时候，<code>dp[0][j] </code>应该是 0，因为背包容量比编号0的物品重量还小(如果原本创建<code>dp</code>数组的时候就把所有元素设为了0，那这一步可以忽略了)</p>
+<p>当<code>j &gt;= weight[0]</code>时，<code>dp[0][j] </code>应该是<code>value[0]</code>，因为背包容量放足够放编号0物品</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> j <span class="token operator">=</span> <span class="token number">0</span> <span class="token punctuation">;</span> j <span class="token operator">&lt;</span> weight<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  <span class="token comment">// 如果把dp数组预先初始化为0了，这一步就可以省略</span>
+    dp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 正序遍历</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> j <span class="token operator">=</span> weight<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span> j <span class="token operator">&lt;=</span> bagweight<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    dp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> value<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<p>到这里，<code>dp[0][j] </code>和 <code>dp[i][0] </code>都已经初始化了，其他值都是由上方和左上方的值推导出来的</p>
+<p>其它下标的初始化可以任意，因为都会被新值覆盖，我们可以在创建<code>dp</code>数组的时候先全设为0</p>
+<p><strong>4. 确定遍历顺序</strong></p>
+<p>有两个遍历维度，<code>i</code>和<code>j</code>，分别是物品和背包重量</p>
+<p>在这题里谁先遍历都是可以的，因为都满足递推公式，但是先遍历<code>i</code>会更好理解</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// weight数组的大小 就是物品个数</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> weight<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 遍历物品</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;=</span> bagweight<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 遍历背包容量</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>j <span class="token operator">&lt;</span> weight<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> dp<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span> 
+        <span class="token keyword">else</span> dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> dp<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j <span class="token operator">-</span> weight<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">+</span> value<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<img src="/2022/03/19/promise/image8.png" class="">
+<p><strong>5. 举例推导<code>dp</code>数组</strong></p>
+<h3 id="2-一维dp数组-滚动数组-01背包"><a href="#2-一维dp数组-滚动数组-01背包" class="headerlink" title="2. 一维dp数组(滚动数组)01背包"></a>2. 一维<code>dp</code>数组(滚动数组)01背包</h3><p>对于背包问题，状态是可以压缩的</p>
+<p>如果把<code>dp[i - 1]</code>那一层拷贝到<code>dp[i]</code>上，表达式完全可以是：<code>dp[i][j] = max(dp[i][j], dp[i][j - weight[i]] + value[i])</code>。但与其拷贝，倒不如只用一个一维数组<code>dp[j]</code>(可以理解成滚动数组)</p>
+<h4 id="动态规划五部曲-1"><a href="#动态规划五部曲-1" class="headerlink" title="动态规划五部曲"></a>动态规划五部曲</h4><p><strong>1. 确定<code>dp</code>数组以及下标的含义</strong></p>
+<p><code>dp[j]</code>表示：容量为<code>j</code>的背包，所背的物品价值可以最大为<code>dp[j]</code></p>
+<p><strong>2. 一维<code>dp</code>数组的递推公式</strong></p>
+<p><code>dp[j]</code>有两个选择，一个是取自己<code>dp[j] </code>相当于 二维<code>dp</code>数组中的<code>dp[i-1][j]</code>，即不放物品<code>i</code>；一个是取<code>dp[j - weight[i]] + value[i]</code>，即放物品<code>i</code>，取它们中的最大值</p>
+<p><code>dp[j] = max(dp[j], dp[j - weight[i]] + value[i])</code></p>
+<p><strong>3. <code>dp</code>数组的初始化</strong></p>
+<p>首先要明确<code>dp</code>数组的定义，<code>dp[j]</code>表示：容量为<code>j</code>的背包，所背的物品价值可以最大为<code>dp[j]</code>，所以<code>dp[0]=0</code></p>
+<p>如果价值都是正整数的话，其他非0下标都初始化为0，这样才能让<code>dp</code>数组在递推公式的过程中取最大的价值，而不是被初始值覆盖</p>
+<p><strong>4. 一维<code>dp</code>数组遍历顺序</strong></p>
+<p>这里和二维<code>dp</code>写法不同，<strong>遍历背包容量需要倒序</strong>，并且要<strong>先遍历物品再遍历背包容量</strong></p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> weight<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 遍历物品</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> j <span class="token operator">=</span> bagWeight<span class="token punctuation">;</span> j <span class="token operator">&gt;=</span> weight<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span> j<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 遍历背包容量</span>
+        dp<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> dp<span class="token punctuation">[</span>j <span class="token operator">-</span> weight<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">+</span> value<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<img src="/2022/03/19/promise/image9.png" class="">
+<p><strong>倒序遍历是为了保证物品<code>i</code>只被放入一次。</strong>因为根据递推公式，<code>dp[j]</code>由<code>dp[j - weight[i]] </code>推导过来，也就是说下标大的值由下标小的值决定，那么当正序遍历，下标从小到大遍历时，前面下标小的值会被新值覆盖，继而影响了后续下标大的值</p>
+<p>对于<strong>先遍历物品再遍历背包容量</strong>：如果先遍历背包容量，并且是倒序遍历，那么每个<code>dp[j]</code>就只会放入一个物品</p>
+<p><strong>5. 举例推导<code>dp</code>数组</strong></p>
+<p>更倾向于使用一维<code>dp</code>数组写法，更简洁，且空间复杂度还降了一个数量级</p>
+<h2 id="完全背包-一维dp数组和二维dp数组的两种实现"><a href="#完全背包-一维dp数组和二维dp数组的两种实现" class="headerlink" title="完全背包(一维dp数组和二维dp数组的两种实现)"></a>完全背包(一维<code>dp</code>数组和二维<code>dp</code>数组的两种实现)</h2><h3 id="例子-1"><a href="#例子-1" class="headerlink" title="例子"></a>例子</h3><p>背包最大重量是4</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">重量</th>
+<th align="center">价值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">物品0</td>
+<td align="center">1</td>
+<td align="center">15</td>
+</tr>
+<tr>
+<td align="center">物品1</td>
+<td align="center">3</td>
+<td align="center">20</td>
+</tr>
+<tr>
+<td align="center">物品2</td>
+<td align="center">4</td>
+<td align="center">30</td>
+</tr>
+</tbody></table>
+<p>每种物品都有无数个，问背包能背的物品最大价值是多少？</p>
+<h3 id="1-一维dp数组-滚动数组-完全背包"><a href="#1-一维dp数组-滚动数组-完全背包" class="headerlink" title="1. 一维dp数组(滚动数组)完全背包"></a>1. 一维<code>dp</code>数组(滚动数组)完全背包</h3><p>一维<code>dp</code>数组01背包和一维<code>dp</code>数组完全背包<strong>唯一不同点</strong>就是<strong>遍历顺序</strong></p>
+<p>01背包的内嵌循环遍历背包容量时，为了保证每个物品只被添加一次，是倒序遍历(从大到小)</p>
+<p>但<strong>完全背包</strong>的同种物品是可以被添加多次的，所以要<strong>正序遍历(从小到大)</strong></p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 先遍历物品，再遍历背包</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> weight<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 遍历物品</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> j <span class="token operator">=</span> weight<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span> j <span class="token operator">&lt;=</span> bagWeight <span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 遍历背包容量</span>
+        dp<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> dp<span class="token punctuation">[</span>j <span class="token operator">-</span> weight<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">+</span> value<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<p>在完全背包中，对于一维<code>dp</code>数组来说，两个for循环的嵌套顺序谁先谁后都是可以的。因为根据递推公式，因为<code>dp[j]</code> 是根据 下标<code>j</code>之前所对应的<code>dp[j]</code>计算出来的。 只要保证下标<code>j</code>之前的<code>dp[j]</code>都是经过计算的就可以了。但这只针对纯完全背包问题，如果题目稍有变化，那么两个for循环的先后顺序就有很大区别了。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 先遍历背包，再遍历物品</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;=</span> bagWeight<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 遍历背包容量</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> weight<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 遍历物品</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>j <span class="token operator">-</span> weight<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&gt;=</span> <span class="token number">0</span><span class="token punctuation">)</span> dp<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> dp<span class="token punctuation">[</span>j <span class="token operator">-</span> weight<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">+</span> value<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="2-二维dp数组完全背包"><a href="#2-二维dp数组完全背包" class="headerlink" title="2. 二维dp数组完全背包"></a>2. 二维<code>dp</code>数组完全背包</h3><p>和二维<code>dp</code>数组01背包差不多，递推公式改一个下标</p>
+<p>递推公式：<code>dp[i][j] = max(dp[i - 1][j], dp[i -][j - weight[i]] + value[i])</code></p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// weight数组的大小 就是物品个数</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> weight<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 遍历物品</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;=</span> bagweight<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 遍历背包容量</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>j <span class="token operator">&lt;</span> weight<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> dp<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span> 
+        <span class="token keyword">else</span> dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> dp<span class="token punctuation">[</span>i <span class="token punctuation">]</span><span class="token punctuation">[</span>j <span class="token operator">-</span> weight<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">+</span> value<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="多重背包"><a href="#多重背包" class="headerlink" title="多重背包"></a>多重背包</h2><p>可以把多重背包转成01背包问题</p>
+<p>每种物品有Mi件可用，把Mi件摊开，就是01背包问题了，且每个物品只用一次</p>
 
                 
             </div>
@@ -517,7 +638,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yikilucky.github.io/2022/03/19/promise/">http://yikilucky.github.io/2022/03/19/promise/</a>
+                    <a href="http://yikilucky.github.io/2023/01/28/bei-bao-wen-ti/">http://yikilucky.github.io/2023/01/28/bei-bao-wen-ti/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -555,8 +676,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Promise/">
-                                    <span class="chip bg-color">Promise</span>
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
+                                    <span class="chip bg-color">数据结构与算法</span>
                                 </a>
                             
                         </div>
@@ -728,9 +849,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
                 <a href="/2023/01/28/bei-bao-wen-ti/">
                     <div class="card-image">
@@ -747,9 +869,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-01-28
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-28
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -762,6 +884,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -780,31 +903,31 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/12/26/git-de-chang-yong-ming-ling/">
+                <a href="/2022/03/19/promise/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Git的常用命令">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Promise">
                         
-                        <span class="card-title">Git的常用命令</span>
+                        <span class="card-title">Promise</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            总结git最日常使用的一些命令
+                            study notes of Promise
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-26
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-19
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Git/" class="post-category">
-                                    Git
+                            <a href="/categories/JavaScript/" class="post-category">
+                                    JavaScript
                                 </a>
                             
                             
@@ -814,8 +937,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Git/">
-                        <span class="chip bg-color">Git</span>
+                    <a href="/tags/Promise/">
+                        <span class="chip bg-color">Promise</span>
                     </a>
                     
                 </div>
