@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="git,ssh-key,github,多平台,多台电脑">
-    <meta name="description" content="总结git配置ssh密钥的方法">
+    <meta name="keywords" content="算法,归并排序">
+    <meta name="description" content="主要分析归并排序">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Git配置SSH-KEY | Yiki&#39;s blog</title>
+    <title>十大排序算法(三）--归并排序 | Yiki&#39;s blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -268,12 +268,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://i.imgur.com/05lgwdA.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Git配置SSH-KEY</h1>
+                    <h1 class="description center-align post-title">十大排序算法(三）--归并排序</h1>
                 </div>
             </div>
         </div>
@@ -389,8 +389,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Git/">
-                                <span class="chip bg-color">Git</span>
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
+                                <span class="chip bg-color">数据结构与算法</span>
                             </a>
                         
                     </div>
@@ -401,8 +401,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Git/" class="post-category">
-                                Git
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" class="post-category">
+                                数据结构与算法
                             </a>
                         
                     </div>
@@ -414,21 +414,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-12-25
+                    2023-05-18
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2023-01-24
+                    2023-05-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    492
+                    461
                 </div>
                 
 
@@ -458,38 +458,49 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Git配置SSH-KEY"><a href="#Git配置SSH-KEY" class="headerlink" title="Git配置SSH-KEY"></a>Git配置SSH-KEY</h1><h2 id="一-配置SSH-KEY前"><a href="#一-配置SSH-KEY前" class="headerlink" title="一. 配置SSH-KEY前"></a>一. 配置SSH-KEY前</h2><p>右键点击<code>Git Bash Here</code>，检查用户名和邮箱是否配置</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git config --global --list<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+                <h1 id="十大排序算法-三）–归并排序"><a href="#十大排序算法-三）–归并排序" class="headerlink" title="十大排序算法(三）–归并排序"></a>十大排序算法(三）–归并排序</h1><p>归并排序是<strong>分治法</strong>的典型应用。</p>
+<h3 id="基本思想"><a href="#基本思想" class="headerlink" title="基本思想"></a>基本思想</h3><ol>
+<li>将n个元素分成个含n/2个元素的子序列</li>
+<li>以相同的方式继续划分子数组，直到只剩下单个元素数组(单个元素数组就是有序数组)</li>
+<li>有序合并子数组，直到最后得到一个排好序的数组</li>
+</ol>
+<h3 id="归并的定义"><a href="#归并的定义" class="headerlink" title="归并的定义"></a>归并的定义</h3><p>将两个或两个以上的有序序列合并成一个新的有序序列，可细分为二路归并，三路归并，多路归并</p>
+<h3 id="如何归并"><a href="#如何归并" class="headerlink" title="如何归并"></a>如何归并</h3><p>比较两个序列的第一个数，取最小的数，然后在对应序列中删除这个数。再进行重复操作，如果有序列为空，那么直接将另一个序列的数据一次取出。</p>
+<h3 id="图片演示"><a href="#图片演示" class="headerlink" title="图片演示"></a>图片演示</h3><p><img src="https://i.imgur.com/RVgSpR5.jpg" alt="归并排序"></p>
+<h3 id="递归代码"><a href="#递归代码" class="headerlink" title="递归代码"></a>递归代码</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 对左右数组进行归并</span>
+<span class="token keyword">function</span> <span class="token function">merge</span><span class="token punctuation">(</span><span class="token parameter">left<span class="token punctuation">,</span> right</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token comment">// 此条件代表当有一个数组为空之后，则停止循环</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>left<span class="token punctuation">.</span>length <span class="token operator">&amp;&amp;</span> right<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 从左右子数组的最小元素中选择较小的元素 push 到 arr</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>left<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">&gt;</span> right<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            arr<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>right<span class="token punctuation">.</span><span class="token function">shift</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            arr<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>left<span class="token punctuation">.</span><span class="token function">shift</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// 输出的数组要加上 left 或 right 剩下的值，由于每次都 push 最小值，则剩余的一定是大值，所以 push 到最后</span>
+    <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token operator">...</span>arr<span class="token punctuation">,</span> <span class="token operator">...</span>left<span class="token punctuation">,</span> <span class="token operator">...</span>right<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<p>如果未配置，则执行下列命令行进行全局配置</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git config --global user.name "your name"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<span class="token comment">// 此方法主要是将数组分为左右两个数组，后再调用 merge 方法对左右数组进行合并</span>
+<span class="token keyword">function</span> <span class="token function">mergeSort</span><span class="token punctuation">(</span><span class="token parameter">arr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 终止条件</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>arr<span class="token punctuation">.</span>length <span class="token operator">&lt;</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> arr<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// 2. 获取数组中间值</span>
+    <span class="token keyword">const</span> half <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>arr<span class="token punctuation">.</span>length <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// 3. 截取数组前一半</span>
+    <span class="token keyword">const</span> left <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">splice</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> half<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// 4. 剩余为数组右半边</span>
+    <span class="token keyword">const</span> right <span class="token operator">=</span> arr<span class="token punctuation">;</span>
+    <span class="token comment">// 5. 返回合并和排序后的数组</span>
+    <span class="token keyword">return</span> <span class="token function">merge</span><span class="token punctuation">(</span><span class="token function">mergeSort</span><span class="token punctuation">(</span>left<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">mergeSort</span><span class="token punctuation">(</span>right<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git config --global user.email "your email"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="二-单个平台配置SSH-KEY"><a href="#二-单个平台配置SSH-KEY" class="headerlink" title="二. 单个平台配置SSH-KEY"></a>二. 单个平台配置SSH-KEY</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ssh-keygen -t rsa -C "对应平台注册的邮箱地址"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>回车后会确认密钥的保存路径，默认是<code>C: \Users\你的用户名\.ssh</code>，如不需要改则直接回车；</p>
-<p>如果该路径下已经有密钥文件，则会被覆盖；</p>
-<p>创建密钥的密码并确认密码，如不需要则直接回车；</p>
-<p>之后在<code>.ssh</code>下会生成<code>id_rsa(存私钥)</code>和<code>id_rsa.pub(存公钥)</code>的两个文件；</p>
-<p>打开GitHub，<code>Settings -- SSH and GPG keys -- New SSH key</code>，复制<code>id_rsa.pub</code>中的公钥到输入框，再为这个key取个title，一般用来区分不同主机；</p>
-<p>测试是否配置成功：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ssh -T git@github.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>此时就可以用ssh的方式提交了，记得要再修改一下本地仓库中 <code>.git -- config文件 -- url</code></p>
-<h2 id="三-多平台配置SSH-KEY"><a href="#三-多平台配置SSH-KEY" class="headerlink" title="三. 多平台配置SSH-KEY"></a>三. 多平台配置SSH-KEY</h2><p>和单平台配置差别不大，主要是生成密钥的时候要改下存密钥的文件名</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ssh -keygen -t rsa -C "平台注册的邮箱地址" -f "生成的rsa文件名"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>若-f后面只带文件名，而非路径，则依旧是在默认目录下生成密钥文件</p>
-<p>如配置gitee平台的SSH：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ssh -keygen -t rsa -C "平台注册的邮箱地址" -f "gitee_id_rsa"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>测试是否配置成功：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ssh -T git@gitee.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="四-多台电脑共用一个SSH-KEY"><a href="#四-多台电脑共用一个SSH-KEY" class="headerlink" title="四. 多台电脑共用一个SSH-KEY"></a>四. 多台电脑共用一个SSH-KEY</h2><p>一台电脑一对密钥，公钥添加在GitHub上，私钥保存在本地；</p>
-<p>如果要共用一对密钥的话，可以先在别的设备上生成ssh key，再替换成相应的<code>id_rsa</code>和<code>id_rsa.pub</code>这两个文件</p>
-<p>注意不能直接复制粘贴文件内容进行内容替换，必须要文件替换！</p>
+<p>时间复杂度：<code>O(nlogn)</code></p>
+<p>空间复杂度：<code>O(n)</code></p>
 
                 
             </div>
@@ -516,7 +527,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yikilucky.github.io/2021/12/25/git-pei-zhi-ssh-key/">http://yikilucky.github.io/2021/12/25/git-pei-zhi-ssh-key/</a>
+                    <a href="http://yikilucky.github.io/2023/05/18/shi-da-pai-xu-suan-fa-san-gui-bing-pai-xu/">http://yikilucky.github.io/2023/05/18/shi-da-pai-xu-suan-fa-san-gui-bing-pai-xu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -554,8 +565,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Git/">
-                                    <span class="chip bg-color">Git</span>
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
+                                    <span class="chip bg-color">数据结构与算法</span>
                                 </a>
                             
                         </div>
@@ -731,31 +742,30 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2021/12/26/git-de-chang-yong-ming-ling/">
+                <a href="/2023/05/18/shi-da-pai-xu-suan-fa-si-dui-pai-xu/">
                     <div class="card-image">
                         
+                        <img src="https://i.imgur.com/CWUM7Gr.jpg" class="responsive-img" alt="十大排序算法(四）--堆排序">
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Git的常用命令">
-                        
-                        <span class="card-title">Git的常用命令</span>
+                        <span class="card-title">十大排序算法(四）--堆排序</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            总结git最日常使用的一些命令
+                            主要分析堆排序
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-12-26
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-05-18
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Git/" class="post-category">
-                                    Git
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" class="post-category">
+                                    数据结构与算法
                                 </a>
                             
                             
@@ -765,8 +775,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Git/">
-                        <span class="chip bg-color">Git</span>
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">数据结构与算法</span>
                     </a>
                     
                 </div>
@@ -780,31 +790,30 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/12/19/study-notes-python-bian-cheng-cong-ru-men-dao-shi-jian/">
+                <a href="/2023/05/18/shi-da-pai-xu-suan-fa-er-kuai-su-pai-xu/">
                     <div class="card-image">
                         
+                        <img src="https://i.imgur.com/nv9C3Am.jpg" class="responsive-img" alt="十大排序算法(二）--快速排序">
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Study Notes--《Python编程 从入门到实践》">
-                        
-                        <span class="card-title">Study Notes--《Python编程 从入门到实践》</span>
+                        <span class="card-title">十大排序算法(二）--快速排序</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            总结Python的一些常用语法
+                            主要分析快速排序
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-05-18
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Python/" class="post-category">
-                                    Python
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" class="post-category">
+                                    数据结构与算法
                                 </a>
                             
                             
@@ -814,8 +823,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Python/">
-                        <span class="chip bg-color">Python</span>
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">数据结构与算法</span>
                     </a>
                     
                 </div>

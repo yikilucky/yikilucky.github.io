@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="git,ssh-key,github,多平台,多台电脑">
-    <meta name="description" content="总结git配置ssh密钥的方法">
+    <meta name="keywords" content="算法,排序">
+    <meta name="description" content="介绍冒泡,选择,插入,希尔,计数,桶以及基数排序">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Git配置SSH-KEY | Yiki&#39;s blog</title>
+    <title>十大排序算法(一) | Yiki&#39;s blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -268,12 +268,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://i.imgur.com/Nj1SJDe.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Git配置SSH-KEY</h1>
+                    <h1 class="description center-align post-title">十大排序算法(一)</h1>
                 </div>
             </div>
         </div>
@@ -389,8 +389,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Git/">
-                                <span class="chip bg-color">Git</span>
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
+                                <span class="chip bg-color">数据结构与算法</span>
                             </a>
                         
                     </div>
@@ -401,8 +401,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Git/" class="post-category">
-                                Git
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" class="post-category">
+                                数据结构与算法
                             </a>
                         
                     </div>
@@ -414,28 +414,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-12-25
+                    2023-05-18
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2023-01-24
+                    2023-05-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    492
+                    1.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    1 Min
+                    5 Min
                 </div>
                 
 
@@ -458,38 +458,140 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Git配置SSH-KEY"><a href="#Git配置SSH-KEY" class="headerlink" title="Git配置SSH-KEY"></a>Git配置SSH-KEY</h1><h2 id="一-配置SSH-KEY前"><a href="#一-配置SSH-KEY前" class="headerlink" title="一. 配置SSH-KEY前"></a>一. 配置SSH-KEY前</h2><p>右键点击<code>Git Bash Here</code>，检查用户名和邮箱是否配置</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git config --global --list<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+                <h1 id="十大排序算法-一"><a href="#十大排序算法-一" class="headerlink" title="十大排序算法(一)"></a>十大排序算法(一)</h1><p><img src="https://i.imgur.com/aeBYwjJ.png" alt="排序算法"></p>
+<p><strong>比较类排序</strong>：通过比较来决定元素间的相对次序，由于其时间复杂度不能突破<code>O(nlogn)</code>，因此也称为非线性时间比较类排序。</p>
+<p><strong>非比较类排序</strong>：不通过比较来决定元素间的相对次序，它可以突破基于比较排序的时间下界，以线性时间运行，因此也称为线性时间非比较类排序。</p>
+<p><img src="https://i.imgur.com/JeBgGJn.png" alt="时间空间复杂度分析"></p>
+<p><strong>稳定</strong>：如果a原本在b前面，而a=b，排序之后a仍然在b的前面。</p>
+<p><strong>不稳定</strong>：如果a原本在b的前面，而a=b，排序之后 a 可能会出现在 b 的后面。</p>
+<p>本篇将介绍<strong>冒泡排序，选择排序，插入排序，希尔排序，计数排序，桶排序以及基数排序</strong></p>
+<h2 id="1-冒泡排序"><a href="#1-冒泡排序" class="headerlink" title="1. 冒泡排序"></a>1. 冒泡排序</h2><h3 id="1-1算法描述"><a href="#1-1算法描述" class="headerlink" title="1.1算法描述"></a>1.1算法描述</h3><ul>
+<li>比较相邻元素，小的元素放前面。</li>
+<li>一轮下来，第一个数就是最小的。</li>
+<li>一共进行n-1轮就能完成排序。</li>
+</ul>
+<h3 id="1-2动图演示"><a href="#1-2动图演示" class="headerlink" title="1.2动图演示"></a>1.2动图演示</h3><p><img src="https://i.imgur.com/nvLyG1P.gif" alt="冒泡排序"></p>
+<h3 id="1-3-代码实现"><a href="#1-3-代码实现" class="headerlink" title="1.3 代码实现"></a>1.3 代码实现</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">bubbleSort</span><span class="token punctuation">(</span><span class="token parameter">arr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> len <span class="token operator">=</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> len<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> len <span class="token operator">-</span> <span class="token number">1</span> <span class="token operator">-</span> i<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">&gt;</span> arr<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>        <span class="token comment">//相邻元素两两对比</span>
+                <span class="token keyword">let</span> temp <span class="token operator">=</span> arr<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>        <span class="token comment">//元素交换</span>
+                arr<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> temp<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> arr<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>如果未配置，则执行下列命令行进行全局配置</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git config --global user.name "your name"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="2-选择排序"><a href="#2-选择排序" class="headerlink" title="2. 选择排序"></a>2. 选择排序</h2><h3 id="2-1算法描述"><a href="#2-1算法描述" class="headerlink" title="2.1算法描述"></a>2.1算法描述</h3><ul>
+<li>找出最小的元素，放在第一位</li>
+<li>再找出第二小的元素，放在第二位</li>
+<li>依次类推，一共进行n-1轮</li>
+</ul>
+<h3 id="2-2动图演示"><a href="#2-2动图演示" class="headerlink" title="2.2动图演示"></a>2.2动图演示</h3><p><img src="https://i.imgur.com/6o1VyA0.gif" alt="选择排序"></p>
+<h3 id="2-3代码实现"><a href="#2-3代码实现" class="headerlink" title="2.3代码实现"></a>2.3代码实现</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">selectionSort</span><span class="token punctuation">(</span><span class="token parameter">arr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> len <span class="token operator">=</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+    <span class="token keyword">let</span> minIndex<span class="token punctuation">,</span> temp<span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> len <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        minIndex <span class="token operator">=</span> i<span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> j <span class="token operator">=</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> len<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">&lt;</span> arr<span class="token punctuation">[</span>minIndex<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>     <span class="token comment">//寻找最小的数</span>
+                minIndex <span class="token operator">=</span> j<span class="token punctuation">;</span>                 <span class="token comment">//将最小数的索引保存</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        temp <span class="token operator">=</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>minIndex<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        arr<span class="token punctuation">[</span>minIndex<span class="token punctuation">]</span> <span class="token operator">=</span> temp<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> arr<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git config --global user.email "your email"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="3-插入排序"><a href="#3-插入排序" class="headerlink" title="3. 插入排序"></a>3. 插入排序</h2><h3 id="3-1算法描述"><a href="#3-1算法描述" class="headerlink" title="3.1算法描述"></a>3.1算法描述</h3><ul>
+<li>第一轮从第二个数开始往前比，小的元素放前面</li>
+<li>第二轮从第三个数开始往前比，小的元素放前面</li>
+<li>依次类推，一共进行n-1轮</li>
+</ul>
+<h3 id="3-2动图演示"><a href="#3-2动图演示" class="headerlink" title="3.2动图演示"></a>3.2动图演示</h3><p><img src="https://i.imgur.com/N2UJMdr.gif" alt="插入排序"></p>
+<h3 id="3-3代码实现"><a href="#3-3代码实现" class="headerlink" title="3.3代码实现"></a>3.3代码实现</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">insertionSort</span><span class="token punctuation">(</span><span class="token parameter">arr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> len <span class="token operator">=</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> len<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> j<span class="token operator">=</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span> j <span class="token operator">&gt;=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">&gt;</span> arr<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span> j<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">let</span> temp <span class="token operator">=</span> arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            arr<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> temp<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> arr<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="二-单个平台配置SSH-KEY"><a href="#二-单个平台配置SSH-KEY" class="headerlink" title="二. 单个平台配置SSH-KEY"></a>二. 单个平台配置SSH-KEY</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ssh-keygen -t rsa -C "对应平台注册的邮箱地址"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="4-希尔排序"><a href="#4-希尔排序" class="headerlink" title="4. 希尔排序"></a>4. 希尔排序</h2><h3 id="4-1-算法描述"><a href="#4-1-算法描述" class="headerlink" title="4.1 算法描述"></a>4.1 算法描述</h3><p>是对上述简单插入排序的改进版，核心在于增量序列的设定</p>
+<p>按照不断缩小的gap(增量)值，不断对数组进行插入排序(<strong>经典希尔算法的gap值为N/2, N/4, ……直到gap值为1，N为数组长度</strong>)，也叫缩小增量排序</p>
+<h4 id="举个例子"><a href="#举个例子" class="headerlink" title="举个例子"></a><strong>举个例子</strong></h4><p>待希尔排序的数组：<code>[84, 83, 88, 87, 61, 50, 70, 60, 80, 99]</code>，N=10</p>
+<p>对每一轮，可以理解成吧原数组按照增量来分成了小数组，并对小数组进行插入排序(实际实现并没有创建小数组，可参照动图进行理解)</p>
+<p><strong>第一轮</strong>：先用<code>N/2</code>做增量</p>
+<p>这里<code>gap=5</code>，小数组为<code>[84,50]</code>, <code>[83, 70]</code>, <code>[88, 60]</code>, <code>[87, 80]</code>, <code>[61,99]</code></p>
+<p>对每个小数组进行插入排序：<code>[50, 84]</code>, <code>[70, 83]</code>, <code>[60, 88]</code>, <code>[80, 87]</code>, <code>[61,99]</code></p>
+<p>排序后的原数组为：<code>[50, 70, 60, 80, 61, 84, 83, 88, 87, 99]</code></p>
+<p><strong>第二轮</strong>：再用<code>N/4</code>做增量</p>
+<p>这里<code>gap=2</code>，小数组为<code>[50, 60, 61, 83, 87]</code>和<code>[70, 80, 84, 88, 99]</code></p>
+<p>对每个小数组进行插入排序：<code>[50, 60, 61, 83, 87]</code>和<code>[70, 80, 84, 88, 99]</code></p>
+<p>排序后的原数组为：<code>[50, 70, 60, 80, 61, 84, 83, 88, 87, 99]</code></p>
+<p><strong>第三轮</strong>：再用N/8做增量</p>
+<p>这里gap=1，其实就是进行简单插入排序</p>
+<p>排序后的原数组为：<code>[50, 60, 61, 70, 80, 83, 84, 87, 88, 99]</code></p>
+<h3 id="4-2-动图演示"><a href="#4-2-动图演示" class="headerlink" title="4.2 动图演示"></a>4.2 动图演示</h3><p><img src="https://i.imgur.com/cHl0CD3.gif" alt="希尔排序"></p>
+<h3 id="4-3-代码实现"><a href="#4-3-代码实现" class="headerlink" title="4.3 代码实现"></a>4.3 代码实现</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">shellSort</span><span class="token punctuation">(</span><span class="token parameter">arr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> len <span class="token operator">=</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> gap <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>len <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span> gap <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">;</span> gap <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>gap <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> gap<span class="token punctuation">;</span> i <span class="token operator">&lt;</span> len<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">let</span> j <span class="token operator">=</span> i<span class="token punctuation">;</span>
+            <span class="token keyword">let</span> current <span class="token operator">=</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span>j <span class="token operator">-</span> gap <span class="token operator">&gt;=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> current <span class="token operator">&lt;</span> arr<span class="token punctuation">[</span>j <span class="token operator">-</span> gap<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                 arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>j <span class="token operator">-</span> gap<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                 j <span class="token operator">=</span> j <span class="token operator">-</span> gap<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> current<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> arr<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>回车后会确认密钥的保存路径，默认是<code>C: \Users\你的用户名\.ssh</code>，如不需要改则直接回车；</p>
-<p>如果该路径下已经有密钥文件，则会被覆盖；</p>
-<p>创建密钥的密码并确认密码，如不需要则直接回车；</p>
-<p>之后在<code>.ssh</code>下会生成<code>id_rsa(存私钥)</code>和<code>id_rsa.pub(存公钥)</code>的两个文件；</p>
-<p>打开GitHub，<code>Settings -- SSH and GPG keys -- New SSH key</code>，复制<code>id_rsa.pub</code>中的公钥到输入框，再为这个key取个title，一般用来区分不同主机；</p>
-<p>测试是否配置成功：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ssh -T git@github.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="5-计数排序"><a href="#5-计数排序" class="headerlink" title="5. 计数排序"></a>5. 计数排序</h2><h3 id="5-1-算法描述"><a href="#5-1-算法描述" class="headerlink" title="5.1 算法描述"></a>5.1 算法描述</h3><p>不是基于比较的排序算法。用空间换时间。将输入的数据值转化为键存储在额外开辟的数组空间中。</p>
+<ul>
+<li>找出待排序数组中最大的元素maxValue，创建长度为maxValue+1的数组bucket</li>
+<li>将原数组中的元素<code>i</code>的出现次数存入新数组<code>bucket[i]</code>。于是新数组的下标为待排序的数，下标对应的值为出现次数</li>
+<li>根据新数组来填充原数组</li>
+</ul>
+<h3 id="5-2-动图演示"><a href="#5-2-动图演示" class="headerlink" title="5.2 动图演示"></a>5.2 动图演示</h3><p><img src="https://i.imgur.com/KGZ9IPp.gif" alt="计数排序"></p>
+<h3 id="5-3-代码实现"><a href="#5-3-代码实现" class="headerlink" title="5.3 代码实现"></a>5.3 代码实现</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">countingSort</span><span class="token punctuation">(</span><span class="token parameter">arr<span class="token punctuation">,</span> maxValue</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> bucket <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Array</span><span class="token punctuation">(</span>maxValue <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> sortedIndex <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+ 
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        bucket<span class="token punctuation">[</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+ 
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> maxValue<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>bucket<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            arr<span class="token punctuation">[</span>sortedIndex<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> j<span class="token punctuation">;</span>
+            bucket<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">--</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+ 
+    <span class="token keyword">return</span> arr<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>此时就可以用ssh的方式提交了，记得要再修改一下本地仓库中 <code>.git -- config文件 -- url</code></p>
-<h2 id="三-多平台配置SSH-KEY"><a href="#三-多平台配置SSH-KEY" class="headerlink" title="三. 多平台配置SSH-KEY"></a>三. 多平台配置SSH-KEY</h2><p>和单平台配置差别不大，主要是生成密钥的时候要改下存密钥的文件名</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ssh -keygen -t rsa -C "平台注册的邮箱地址" -f "生成的rsa文件名"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>若-f后面只带文件名，而非路径，则依旧是在默认目录下生成密钥文件</p>
-<p>如配置gitee平台的SSH：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ssh -keygen -t rsa -C "平台注册的邮箱地址" -f "gitee_id_rsa"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>测试是否配置成功：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ssh -T git@gitee.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="四-多台电脑共用一个SSH-KEY"><a href="#四-多台电脑共用一个SSH-KEY" class="headerlink" title="四. 多台电脑共用一个SSH-KEY"></a>四. 多台电脑共用一个SSH-KEY</h2><p>一台电脑一对密钥，公钥添加在GitHub上，私钥保存在本地；</p>
-<p>如果要共用一对密钥的话，可以先在别的设备上生成ssh key，再替换成相应的<code>id_rsa</code>和<code>id_rsa.pub</code>这两个文件</p>
-<p>注意不能直接复制粘贴文件内容进行内容替换，必须要文件替换！</p>
+<h2 id="6-桶排序"><a href="#6-桶排序" class="headerlink" title="6. 桶排序"></a>6. 桶排序</h2><h3 id="6-1-算法描述"><a href="#6-1-算法描述" class="headerlink" title="6.1 算法描述"></a>6.1 算法描述</h3><p>桶排序是计数排序的升级版。它利用了函数的映射关系，将数映射到对应的桶里，然后再对每个桶分别排序（有可能使用别的排序算法或是以递归方式继续使用桶排序）</p>
+<ul>
+<li>创建一个定量的数组，数组中每个元素都是一个空桶(空数组)</li>
+<li>遍历输入数据，并且把数据一个一个放到对应的桶里去</li>
+<li>对每个不是空的桶进行排序</li>
+<li>从不是空的桶里把排好序的数据拼接起来</li>
+</ul>
+<h2 id="7-基数排序"><a href="#7-基数排序" class="headerlink" title="7. 基数排序"></a>7. 基数排序</h2><h3 id="7-1-算法描述"><a href="#7-1-算法描述" class="headerlink" title="7.1 算法描述"></a>7.1 算法描述</h3><p>基数排序是按照低位先排序，然后收集；再按照高位排序，然后再收集；依次类推，直到最高位</p>
+<h3 id="7-2-动图演示"><a href="#7-2-动图演示" class="headerlink" title="7.2 动图演示"></a>7.2 动图演示</h3><p><img src="https://i.imgur.com/HBE4qFV.gif" alt="基数排序"></p>
 
                 
             </div>
@@ -516,7 +618,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yikilucky.github.io/2021/12/25/git-pei-zhi-ssh-key/">http://yikilucky.github.io/2021/12/25/git-pei-zhi-ssh-key/</a>
+                    <a href="http://yikilucky.github.io/2023/05/18/shi-da-pai-xu-suan-fa-yi/">http://yikilucky.github.io/2023/05/18/shi-da-pai-xu-suan-fa-yi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -554,8 +656,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Git/">
-                                    <span class="chip bg-color">Git</span>
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
+                                    <span class="chip bg-color">数据结构与算法</span>
                                 </a>
                             
                         </div>
@@ -731,31 +833,30 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2021/12/26/git-de-chang-yong-ming-ling/">
+                <a href="/2023/05/18/shi-da-pai-xu-suan-fa-er-kuai-su-pai-xu/">
                     <div class="card-image">
                         
+                        <img src="https://i.imgur.com/nv9C3Am.jpg" class="responsive-img" alt="十大排序算法(二）--快速排序">
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Git的常用命令">
-                        
-                        <span class="card-title">Git的常用命令</span>
+                        <span class="card-title">十大排序算法(二）--快速排序</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            总结git最日常使用的一些命令
+                            主要分析快速排序
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-12-26
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-05-18
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Git/" class="post-category">
-                                    Git
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" class="post-category">
+                                    数据结构与算法
                                 </a>
                             
                             
@@ -765,8 +866,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Git/">
-                        <span class="chip bg-color">Git</span>
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">数据结构与算法</span>
                     </a>
                     
                 </div>
@@ -780,31 +881,30 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/12/19/study-notes-python-bian-cheng-cong-ru-men-dao-shi-jian/">
+                <a href="/2023/01/28/bei-bao-wen-ti/">
                     <div class="card-image">
                         
+                        <img src="https://i.imgur.com/WHISuje.jpg" class="responsive-img" alt="背包问题">
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Study Notes--《Python编程 从入门到实践》">
-                        
-                        <span class="card-title">Study Notes--《Python编程 从入门到实践》</span>
+                        <span class="card-title">背包问题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            总结Python的一些常用语法
+                            主要分析01背包，完全背包，简单提到多重背包
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-28
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Python/" class="post-category">
-                                    Python
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" class="post-category">
+                                    数据结构与算法
                                 </a>
                             
                             
@@ -814,8 +914,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Python/">
-                        <span class="chip bg-color">Python</span>
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">数据结构与算法</span>
                     </a>
                     
                 </div>

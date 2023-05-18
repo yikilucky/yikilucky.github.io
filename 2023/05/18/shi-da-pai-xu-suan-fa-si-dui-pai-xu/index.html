@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="git,ssh-key,github,多平台,多台电脑">
-    <meta name="description" content="总结git配置ssh密钥的方法">
+    <meta name="keywords" content="算法,堆排序">
+    <meta name="description" content="主要分析堆排序">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Git配置SSH-KEY | Yiki&#39;s blog</title>
+    <title>十大排序算法(四）--堆排序 | Yiki&#39;s blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -268,12 +268,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://i.imgur.com/CWUM7Gr.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Git配置SSH-KEY</h1>
+                    <h1 class="description center-align post-title">十大排序算法(四）--堆排序</h1>
                 </div>
             </div>
         </div>
@@ -389,8 +389,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Git/">
-                                <span class="chip bg-color">Git</span>
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
+                                <span class="chip bg-color">数据结构与算法</span>
                             </a>
                         
                     </div>
@@ -401,8 +401,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Git/" class="post-category">
-                                Git
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" class="post-category">
+                                数据结构与算法
                             </a>
                         
                     </div>
@@ -414,28 +414,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-12-25
+                    2023-05-18
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2023-01-24
+                    2023-05-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    492
+                    900
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    1 Min
+                    3 Min
                 </div>
                 
 
@@ -458,38 +458,84 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Git配置SSH-KEY"><a href="#Git配置SSH-KEY" class="headerlink" title="Git配置SSH-KEY"></a>Git配置SSH-KEY</h1><h2 id="一-配置SSH-KEY前"><a href="#一-配置SSH-KEY前" class="headerlink" title="一. 配置SSH-KEY前"></a>一. 配置SSH-KEY前</h2><p>右键点击<code>Git Bash Here</code>，检查用户名和邮箱是否配置</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git config --global --list<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+                <h1 id="十大排序算法-四）–堆排序"><a href="#十大排序算法-四）–堆排序" class="headerlink" title="十大排序算法(四）–堆排序"></a>十大排序算法(四）–堆排序</h1><h3 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h3><p>堆是一个特殊的完全二叉树，可分为<strong>大顶堆</strong>和<strong>小顶堆</strong></p>
+<p>大顶堆：根节点是最大值，每个节点的值都大于或等于其左右孩子节点的值；</p>
+<p>小顶堆：根节点是最小值，每个节点的值都小于或等于其左右孩子节点的值；</p>
+<p>堆由数组来实现，相当于层序遍历。</p>
+<p><img src="https://i.imgur.com/UIFMoN7.png" alt="大小顶堆"></p>
+<p>将大顶堆映射成数组：</p>
+<p><img src="https://i.imgur.com/evYtK4b.png" alt="映射数组"></p>
+<p>节点<code>i</code>的<code>左孩子</code>节点是<code>2i+1</code>，<code>右孩子</code>节点是<code>2i+2</code>，<code>父节点</code>是<code>(i-1)/2</code>;</p>
+<h3 id="基本思想"><a href="#基本思想" class="headerlink" title="基本思想"></a>基本思想</h3><ul>
+<li>构建初始堆，根据升序或降序选择大顶堆或小顶堆。首先选取最后一个非叶子节点，下标为<code>Math.floor(arr.length/2-1)</code>，调整以它为父节点的子堆；然后下标依次减1，从右至左，从下到上遍历所有非叶子节点。在调整上方的子堆时可能会影响下方的子堆，需要继续调整下方子堆。</li>
+<li>将堆顶元素与末尾元素交换，使末尾元素最大。除开末尾元素继续从根节点调整堆，在调整成大顶堆或小顶堆后，再将堆顶元素与末尾元素交换，得到第二大元素。如此反复进行交换、重建、交换，直到序列有序。</li>
+</ul>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p>大顶堆–升序</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 调整堆结构</span>
+<span class="token keyword">function</span> <span class="token function">heapify</span><span class="token punctuation">(</span><span class="token parameter">arr<span class="token punctuation">,</span>i<span class="token punctuation">,</span>length</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment">// 从i节点的左孩子节点开始，也就是2i+1处开始</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> j<span class="token operator">=</span><span class="token number">2</span><span class="token operator">*</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>j<span class="token operator">&lt;</span>length<span class="token punctuation">;</span>j<span class="token operator">=</span><span class="token number">2</span><span class="token operator">*</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment">//如果右孩子节点大于左孩子节点，j指向右孩子节点</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token operator">&lt;</span>length<span class="token operator">&amp;&amp;</span>arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">&lt;</span>arr<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> j<span class="token operator">++</span><span class="token punctuation">;</span> 
+        <span class="token comment">//如果子节点大于父节点，将两个节点交换</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">&lt;</span>arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token punctuation">[</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">[</span>arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            i<span class="token operator">=</span>j<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-<p>如果未配置，则执行下列命令行进行全局配置</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git config --global user.name "your name"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<span class="token comment">// 堆排序</span>
+<span class="token keyword">function</span> <span class="token function">heapSort</span><span class="token punctuation">(</span><span class="token parameter">arr</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment">// 构建大顶堆，从最后一个非叶子节点开始从右至左，从下到上调整结构</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> i<span class="token operator">=</span>Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>arr<span class="token punctuation">.</span>length<span class="token operator">/</span><span class="token number">2</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>i<span class="token operator">&gt;=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">--</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token function">heapify</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span>i<span class="token punctuation">,</span>arr<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// 交换堆顶元素与末尾元素，再从根节点调整堆结构</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> i<span class="token operator">=</span>arr<span class="token punctuation">.</span>length<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&gt;</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">--</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token punctuation">[</span>arr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">[</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>arr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token function">heapify</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git config --global user.email "your email"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token function">heapSort</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//[1, 2, 2, 3, 4, 5, 5, 6, 8, 9]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="二-单个平台配置SSH-KEY"><a href="#二-单个平台配置SSH-KEY" class="headerlink" title="二. 单个平台配置SSH-KEY"></a>二. 单个平台配置SSH-KEY</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ssh-keygen -t rsa -C "对应平台注册的邮箱地址"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>小顶堆–降序 (和大顶堆代码几乎一样，改一下大小于号罢了)</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 调整堆结构</span>
+<span class="token keyword">function</span> <span class="token function">heapify</span><span class="token punctuation">(</span><span class="token parameter">arr<span class="token punctuation">,</span>i<span class="token punctuation">,</span>length</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment">// 从i节点的左孩子节点开始，也就是2i+1处开始</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> j<span class="token operator">=</span><span class="token number">2</span><span class="token operator">*</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>j<span class="token operator">&lt;</span>length<span class="token punctuation">;</span>j<span class="token operator">=</span><span class="token number">2</span><span class="token operator">*</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment">//如果右孩子节点小于左孩子节点，j指向右孩子节点</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token operator">&lt;</span>length<span class="token operator">&amp;&amp;</span>arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">&gt;</span>arr<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> j<span class="token operator">++</span><span class="token punctuation">;</span> 
+        <span class="token comment">//如果子节点小于父节点，将两个节点交换</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">&gt;</span>arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token punctuation">[</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">[</span>arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            i<span class="token operator">=</span>j<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-<p>回车后会确认密钥的保存路径，默认是<code>C: \Users\你的用户名\.ssh</code>，如不需要改则直接回车；</p>
-<p>如果该路径下已经有密钥文件，则会被覆盖；</p>
-<p>创建密钥的密码并确认密码，如不需要则直接回车；</p>
-<p>之后在<code>.ssh</code>下会生成<code>id_rsa(存私钥)</code>和<code>id_rsa.pub(存公钥)</code>的两个文件；</p>
-<p>打开GitHub，<code>Settings -- SSH and GPG keys -- New SSH key</code>，复制<code>id_rsa.pub</code>中的公钥到输入框，再为这个key取个title，一般用来区分不同主机；</p>
-<p>测试是否配置成功：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ssh -T git@github.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<span class="token comment">// 堆排序</span>
+<span class="token keyword">function</span> <span class="token function">heapSort</span><span class="token punctuation">(</span><span class="token parameter">arr</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment">// 构建小顶堆，从最后一个非叶子节点开始从右至左，从下到上调整结构</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> i<span class="token operator">=</span>Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>arr<span class="token punctuation">.</span>length<span class="token operator">/</span><span class="token number">2</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>i<span class="token operator">&gt;=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">--</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token function">heapify</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span>i<span class="token punctuation">,</span>arr<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// 交换堆顶元素与末尾元素，再从根节点调整堆结构</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> i<span class="token operator">=</span>arr<span class="token punctuation">.</span>length<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&gt;</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">--</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token punctuation">[</span>arr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">[</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>arr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token function">heapify</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-<p>此时就可以用ssh的方式提交了，记得要再修改一下本地仓库中 <code>.git -- config文件 -- url</code></p>
-<h2 id="三-多平台配置SSH-KEY"><a href="#三-多平台配置SSH-KEY" class="headerlink" title="三. 多平台配置SSH-KEY"></a>三. 多平台配置SSH-KEY</h2><p>和单平台配置差别不大，主要是生成密钥的时候要改下存密钥的文件名</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ssh -keygen -t rsa -C "平台注册的邮箱地址" -f "生成的rsa文件名"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token function">heapSort</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//[9, 8, 6, 5, 5, 4, 3, 2, 2, 1]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>若-f后面只带文件名，而非路径，则依旧是在默认目录下生成密钥文件</p>
-<p>如配置gitee平台的SSH：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ssh -keygen -t rsa -C "平台注册的邮箱地址" -f "gitee_id_rsa"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>测试是否配置成功：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ssh -T git@gitee.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="四-多台电脑共用一个SSH-KEY"><a href="#四-多台电脑共用一个SSH-KEY" class="headerlink" title="四. 多台电脑共用一个SSH-KEY"></a>四. 多台电脑共用一个SSH-KEY</h2><p>一台电脑一对密钥，公钥添加在GitHub上，私钥保存在本地；</p>
-<p>如果要共用一对密钥的话，可以先在别的设备上生成ssh key，再替换成相应的<code>id_rsa</code>和<code>id_rsa.pub</code>这两个文件</p>
-<p>注意不能直接复制粘贴文件内容进行内容替换，必须要文件替换！</p>
+<h3 id="时间空间复杂度分析"><a href="#时间空间复杂度分析" class="headerlink" title="时间空间复杂度分析"></a>时间空间复杂度分析</h3><p>时间复杂度：<code>O(nlogn)</code>，调整堆结构是<code>O(logn)</code>(含n个节点的堆的高度是<code>1+logn</code>)，两层for循环，最终是<code>O(nlogn)</code></p>
+<p>空间复杂度：<code>O(1)</code></p>
 
                 
             </div>
@@ -516,7 +562,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yikilucky.github.io/2021/12/25/git-pei-zhi-ssh-key/">http://yikilucky.github.io/2021/12/25/git-pei-zhi-ssh-key/</a>
+                    <a href="http://yikilucky.github.io/2023/05/18/shi-da-pai-xu-suan-fa-si-dui-pai-xu/">http://yikilucky.github.io/2023/05/18/shi-da-pai-xu-suan-fa-si-dui-pai-xu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -554,8 +600,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Git/">
-                                    <span class="chip bg-color">Git</span>
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
+                                    <span class="chip bg-color">数据结构与算法</span>
                                 </a>
                             
                         </div>
@@ -727,46 +773,47 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2021/12/26/git-de-chang-yong-ming-ling/">
+                <a href="/2023/05/18/shi-da-pai-xu-suan-fa-si-dui-pai-xu/">
                     <div class="card-image">
                         
+                        <img src="https://i.imgur.com/CWUM7Gr.jpg" class="responsive-img" alt="十大排序算法(四）--堆排序">
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Git的常用命令">
-                        
-                        <span class="card-title">Git的常用命令</span>
+                        <span class="card-title">十大排序算法(四）--堆排序</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            总结git最日常使用的一些命令
+                            主要分析堆排序
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-12-26
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-05-18
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Git/" class="post-category">
-                                    Git
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" class="post-category">
+                                    数据结构与算法
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Git/">
-                        <span class="chip bg-color">Git</span>
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">数据结构与算法</span>
                     </a>
                     
                 </div>
@@ -780,31 +827,30 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/12/19/study-notes-python-bian-cheng-cong-ru-men-dao-shi-jian/">
+                <a href="/2023/05/18/shi-da-pai-xu-suan-fa-san-gui-bing-pai-xu/">
                     <div class="card-image">
                         
+                        <img src="https://i.imgur.com/05lgwdA.jpg" class="responsive-img" alt="十大排序算法(三）--归并排序">
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Study Notes--《Python编程 从入门到实践》">
-                        
-                        <span class="card-title">Study Notes--《Python编程 从入门到实践》</span>
+                        <span class="card-title">十大排序算法(三）--归并排序</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            总结Python的一些常用语法
+                            主要分析归并排序
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-05-18
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Python/" class="post-category">
-                                    Python
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" class="post-category">
+                                    数据结构与算法
                                 </a>
                             
                             
@@ -814,8 +860,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Python/">
-                        <span class="chip bg-color">Python</span>
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">数据结构与算法</span>
                     </a>
                     
                 </div>
